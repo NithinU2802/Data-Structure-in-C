@@ -27,6 +27,7 @@ bool Delete(struct Linked* h,int i){
             if(c==1) head=h->next;
             else{
                 pre->next=h->next;
+                free(h);
             }
             return true;
         }
@@ -72,6 +73,14 @@ bool Insert(struct Linked* h,int i,int e){
 }
 
 bool Create(){
+struct Linked *t;
+if(n>0){
+    while(head!=NULL){
+        t=head;
+        head=head->next;
+        free(t);
+    }
+}
 printf("\nEnter the Size:");
 scanf("%d",&n); 
 struct Linked *arr=head,*pre=arr=(struct Linked*)malloc(sizeof(struct Linked));
