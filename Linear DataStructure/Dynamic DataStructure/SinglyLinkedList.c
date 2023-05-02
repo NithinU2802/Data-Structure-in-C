@@ -38,7 +38,14 @@ bool Delete(struct Linked* h,int i){
 
 bool Insert(struct Linked* h,int i,int e){
     int c=0;
+    
     struct Linked *t=(struct Linked*)malloc(sizeof(struct Linked)),*pre;
+    if(h==NULL){
+    t->val=e;
+    t->next=NULL;
+    head=t;
+    return true;
+    }
     while(h!=NULL){
         c++;
         if(c==i){
