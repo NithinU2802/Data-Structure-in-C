@@ -118,23 +118,13 @@ struct Binary* Highest(struct Binary* r,struct Binary* t){
     return b;
 }
 
-bool Delete(struct Binary* r,int e){
-    struct Binary *t=NULL,*l=NULL;
-    if(e<r->val) Delete(t->left,e);
-    else if(e>r->val) Delete(t->right,e);
-    else if(r->left!=NULL && l->right!=NULL){
-    t=Highest(r->left,l);
-    r->val=t->val;
-    Delete(t->left,t->val);
-    }else{
-        t=r;
-        if(r->left==NULL && r->right==NULL) 
-        r=NULL;
-        else if(r->left!=NULL) r=r->left;
-        else if(r->right!=NULL) r=r->right; 
-        free(t);
+Binary* Delete(struct Binary* r,int e){
+    if(r==NULL) return NULL;
+    else{
+        if(e==r->val)
     }
-    return true;
+    //if(t->left==NULL && t->right==NULL) 
+    return false;
 }
 
 
@@ -158,8 +148,10 @@ do{
         break;
         case 2:
         printf("Enter Element: ");
-        if(Delete(root,e)) printf("Element Deleted Successfully..!!\n");
+        if(Delete(root,e)!=NULL) printf("Element Deleted Successfully..!!\n");
         else printf("Element May Not Available in the tree..?");
+        // if(Delete(root,e)) printf("Element Deleted Successfully..!!\n");
+        // else printf("Element May Not Available in the tree..?");
         break;
         case 3:
         Traverse();
